@@ -192,7 +192,7 @@ footer {
 }
 
 /* Estado: El botón Sí pide a gritos ser presionado */
-.pulse-animation {
+#si.pulse-animation {
     /* La animación dura 0.8s, se repite infinito y va de ida y vuelta (alternate) */
     animation: pulse-glow 0.8s infinite alternate;
 }

@@ -1,0 +1,37 @@
+// casos de uso se aplica la logica de lo que se quiere hacer
+
+import {Proposal} from "../domain/Proposal";
+
+export class MoveButtonUseCase {
+
+    #proposal;
+    #browserAdapter;
+
+    constructor(proposal, browserAdapter) {
+        this.#proposal = proposal;
+        this.#browserAdapter = browserAdapter;
+    }
+
+    execute(containerId, buttonId) {
+        const containerDimension = this.#browserAdapter.getContainerDimensions(containerId)
+        const buttonDimension = this.#browserAdapter.getElementDimensions(buttonId);
+
+        const limitSpace = {
+            x: containerDimension.width - buttonDimension.width,
+            y: containerDimension.height - buttonDimension.height
+        };
+
+        const x = Math.floor(Math.random() * limitSpace.x);
+        const y = Math.floor(Math.random() * limitSpace.y);
+
+        const message = this.#proposal.getRandomMessage();
+
+        return {
+            x: x,
+            y: y,
+            message: message
+        };
+    }
+
+
+}
