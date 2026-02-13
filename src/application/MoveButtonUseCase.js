@@ -1,6 +1,4 @@
-// casos de uso se aplica la logica de lo que se quiere hacer
-
-import {Proposal} from "../domain/Proposal";
+// casos de uso se aplica la lógica de lo que se quiere hacer
 
 export class MoveButtonUseCase {
 
