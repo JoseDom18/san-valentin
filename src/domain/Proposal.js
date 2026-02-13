@@ -8,6 +8,8 @@ export class Proposal {
     #status;
     #attempts;
     #messages;
+    #sadDuduImages;
+    #happyDuduImages;
 
     constructor() {
         this.#status = "PENDING"; // determina si fue aceptado o no
@@ -22,6 +24,17 @@ export class Proposal {
             "¡No me hagas esto!",
             "Te invito un pozol 😔"
         ];
+
+        this.#sadDuduImages = [
+            'dudu-crying.gif',
+            'dudu-triste.gif'
+        ];
+
+        this.#happyDuduImages = [
+            'dudu-bubu.gif',
+            'dudu-dancing.gif',
+            'dudu-bubu-dudu-love.gif',
+        ]
     }
 
     get status() {
@@ -50,4 +63,15 @@ export class Proposal {
         return this.#messages[randomIndex];
     }
 
+    getSadDuduImages() {
+        const index= Math.floor(Math.random() * this.#sadDuduImages.length);
+
+        return this.#sadDuduImages[index];
+    }
+
+    getHappyDuduImages() {
+        const index = Math.floor(Math.random() * this.#happyDuduImages.length);
+
+        return this.#happyDuduImages[index];
+    }
 }

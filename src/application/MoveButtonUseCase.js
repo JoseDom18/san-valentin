@@ -23,11 +23,15 @@ export class MoveButtonUseCase {
         const y = Math.floor(Math.random() * limitSpace.y);
 
         const message = this.#proposal.getRandomMessage();
+        const sadDuduImg = this.#proposal.getSadDuduImages();
+        const happyDuduImg = this.#proposal.getHappyDuduImages();
 
         return {
             x: x,
             y: y,
-            message: message
+            message: message,
+            sadImg: sadDuduImg,
+            happyImg: happyDuduImg,
         };
     }
 
