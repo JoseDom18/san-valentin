@@ -13,8 +13,9 @@ const btnSi = document.getElementById('si');
 const messageBox = 'feedback-message';
 const duduImg = 'dudu-img';
 
-// 3. EL "CUÁNDO": Evento Hover (Solo existe en web)
-btnNo.addEventListener('mouseover', () => {
+const handleReject = (event) => {
+    if (event === 'touchstart') event.preventDefault();
+
     // A. Aspectos visuales inmediatos
     btnNo.style.position = 'absolute'; // Ahora sí permitimos que vuele
 
@@ -32,7 +33,10 @@ btnNo.addEventListener('mouseover', () => {
     browserAdapter.toggleBrokenHearts(true);     // Romper corazones
     browserAdapter.toggleButtonHighlight('si', true); // Hacer que el SÍ palpite
     browserAdapter.changeImageDudu(duduImg, result.sadImg);
-});
+}
+
+btnNo.addEventListener('mouseover', handleReject);
+btnNo.addEventListener('touchstart', handleReject, {passive: false});
 
 // 4. EL FINAL FELIZ: Evento Click en Sí
 btnSi.addEventListener('click', () => {
@@ -49,16 +53,13 @@ btnSi.addEventListener('click', () => {
     btnNo.style.display = 'none';
     btnSi.style.display = 'none';
 
-
-
     // Mensaje final
     browserAdapter.updateTextContent('title-question', result.message);
     browserAdapter.updateTextContent(messageBox, result.reward);
 
     // Fiesta de corazones
     // OPTIMIZE create a function in infrastructure cap for active the heart-party
-    const hearts = document.querySelectorAll('.heart-icon');
-    hearts.forEach(icon => icon.classList.add('heart-party'));
+    browserAdapter.activeHeartParty();
 
     // Cambiar imagen (Opcional, si tienes el gif feliz)
     browserAdapter.changeImageDudu(duduImg, result.img)

@@ -63,4 +63,9 @@ export class BrowserAdapter {
             element.classList.remove('pulse-animation');
         }
     }
+
+    activeHeartParty() {
+        const hearts = document.querySelectorAll('.heart-icon');
+        hearts.forEach(icon => icon.classList.add('heart-party'));
+    }
 }
