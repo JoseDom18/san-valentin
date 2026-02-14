@@ -10,7 +10,7 @@ export class MoveButtonUseCase {
         this.#browserAdapter = browserAdapter;
     }
 
-    execute(containerId, buttonId) {
+    executeNo(containerId, buttonId) {
         const containerDimension = this.#browserAdapter.getContainerDimensions(containerId)
         const buttonDimension = this.#browserAdapter.getElementDimensions(buttonId);
 
@@ -22,20 +22,27 @@ export class MoveButtonUseCase {
         const x = Math.floor(Math.random() * limitSpace.x);
         const y = Math.floor(Math.random() * limitSpace.y);
 
-        const message = this.#proposal.getRandomMessage();
+        const message = this.#proposal.getRandomNoMessage();
         const sadDuduImg = this.#proposal.getSadDuduImages();
-        const happyDuduImg = this.#proposal.getHappyDuduImages();
 
         return {
             x: x,
             y: y,
             message: message,
             sadImg: sadDuduImg,
-            happyImg: happyDuduImg,
         };
     }
 
-    // OPTIMIZE create a new method than return an image
+    executeYes() {
+        const message = this.#proposal.getRandomYesMessage();
+        const reward = this.#proposal.getRandomRewardMessage();
+        const img = this.#proposal.getHappyDuduImages();
 
+        return {
+            message: message,
+            reward: reward,
+            img: img
+        };
+    }
 
 }

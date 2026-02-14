@@ -7,16 +7,18 @@ export class Proposal {
     // propiedades privadas
     #status;
     #attempts;
-    #messages;
+    #noMessages;
     #sadDuduImages;
     #happyDuduImages;
+    #yesMessages;
+    #rewardMessages;
 
     constructor() {
         this.#status = "PENDING"; // determina si fue aceptado o no
         this.#attempts = 0; // contador de veces que huyo
 
         // arrays de frases
-        this.#messages = [
+        this.#noMessages = [
             "¿Piénsalo bien, no?",
             "¡Por favor, di que sí!",
             "¡Tú sabes que te conviene!",
@@ -24,6 +26,20 @@ export class Proposal {
             "¡No me hagas esto!",
             "Te invito un pozol 😔"
         ];
+
+        this.#yesMessages = [
+            "Sabia que dirias que si, te amo osita 💗",
+            "Somos el uno para el otro 🥰",
+            "Te amare el resto de mi vida 💖",
+            "Eres mi gran tesoro 🌞",
+            "Gracias por tanto amor ✨",
+            "Tu amor me hace mejor 😘"
+        ]
+
+        this.#rewardMessages = [
+            "Te has ganado un sushi este 14 🍣",
+            "Tenemos una cita este 14 💃🕺"
+        ]
 
         this.#sadDuduImages = [
             'dudu-crying.gif',
@@ -35,16 +51,31 @@ export class Proposal {
             'dudu-dancing.gif',
             'dudu-bubu-dudu-love.gif',
         ]
-
-        // TODO create a list with different frases of proposal approve
     }
 
     get status() {
         return this.#status;
     }
 
-    get messages() {
-        return this.#messages;
+
+    get noMessages() {
+        return this.#noMessages;
+    }
+
+    get sadDuduImages() {
+        return this.#sadDuduImages;
+    }
+
+    get happyDuduImages() {
+        return this.#happyDuduImages;
+    }
+
+    get yesMessages() {
+        return this.#yesMessages;
+    }
+
+    get rewardMessages() {
+        return this.#rewardMessages;
     }
 
     get attempts() {
@@ -57,10 +88,22 @@ export class Proposal {
     }
 
     // método para obtener frase aleatoria
-    getRandomMessage() {
+    getRandomNoMessage() {
         this.#attempts++; // se incrementa en uno cada que se pide una frase
-        const randomIndex = Math.floor(Math.random() * this.messages.length);
-        return this.#messages[randomIndex];
+        const randomIndex = Math.floor(Math.random() * this.#noMessages.length);
+        return this.#noMessages[randomIndex];
+    }
+
+    getRandomYesMessage() {
+        this.#attempts++; // se incrementa en uno cada que se pide una frase
+        const randomIndex = Math.floor(Math.random() * this.#yesMessages.length);
+        return this.#yesMessages[randomIndex];
+    }
+
+    getRandomRewardMessage() {
+        this.#attempts++;
+        const randomIndex = Math.floor(Math.random() * this.#rewardMessages.length);
+        return this.#rewardMessages[randomIndex];
     }
 
     getSadDuduImages() {

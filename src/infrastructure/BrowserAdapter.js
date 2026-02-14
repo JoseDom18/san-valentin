@@ -27,6 +27,11 @@ export class BrowserAdapter {
         element.textContent = text;
     }
 
+    changeImageDudu(elementId, fileName) {
+        const element = document.getElementById(elementId);
+        element.setAttribute('src', `src/presentation/image/${fileName}`);
+    }
+
     // método para transformar los corazones (cambios de color)
     toggleBrokenHearts(isBroken) {
         const hearts = document.querySelectorAll('.heart-icon');
@@ -56,16 +61,6 @@ export class BrowserAdapter {
             element.classList.add('pulse-animation');
         } else {
             element.classList.remove('pulse-animation');
-        }
-    }
-
-    changeImageDudu(elementId, fileNameSad, fileNameHappy, isChanging) {
-        const element = document.getElementById(elementId);
-
-        if (isChanging) {
-            element.setAttribute('src', `src/presentation/image/${fileNameSad}`);
-        } else {
-            element.setAttribute('src', `src/presentation/image/${fileNameHappy}`);
         }
     }
 }
