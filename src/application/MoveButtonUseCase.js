@@ -33,6 +33,8 @@ export class MoveButtonUseCase {
             sadImg: sadDuduImg,
             happyImg: happyDuduImg,
         };
+
+        // OPTIMIZE create a new method than return an image
     }
 
 

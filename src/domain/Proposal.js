@@ -35,17 +35,17 @@ export class Proposal {
             'dudu-dancing.gif',
             'dudu-bubu-dudu-love.gif',
         ]
+
+        // TODO create a list with different frases of proposal approve
     }
 
     get status() {
         return this.#status;
     }
 
-
     get messages() {
         return this.#messages;
     }
-
 
     get attempts() {
         return this.#attempts;
