@@ -11,7 +11,7 @@ export class BrowserAdapter {
         };
     }
 
-    // metodo para obtener tamaño del boton
+    // método para obtener tamaño del botón
     getElementDimensions(elementId) {
         const element = document.getElementById(elementId);
 
@@ -21,13 +21,13 @@ export class BrowserAdapter {
         };
     }
 
-    // metodo para modificar el dom (inyectar la frase en el html)
+    // método para modificar el dom (inyectar la frase en el html)
     updateTextContent(elementId, text) {
         const element = document.getElementById(elementId);
         element.textContent = text;
     }
 
-    // metodo para transformar los corazones (cambios de color)
+    // método para transformar los corazones (cambios de color)
     toggleBrokenHearts(isBroken) {
         const hearts = document.querySelectorAll('.heart-icon');
         const paths = document.querySelectorAll('.heart-path');
